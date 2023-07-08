@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bow : MonoBehaviour
 {
     [Header("Connect Script")]
-    [SerializeField] Transform _weapon_pos;
+    [SerializeField] ActiveWeapon _weapon_pos;
     [SerializeField] Transform _arrow_spawm_pos;
     [SerializeField] Animator _bow_anim;
     [SerializeField] GameObject _arrow_prefabs;
@@ -19,6 +19,7 @@ public class Bow : MonoBehaviour
     private void Awake()
     {
         _bow_power = 500;
+        _weapon_pos = GetComponentInParent<ActiveWeapon>();
         _bow_anim = GetComponentInParent<Animator>();
         _input_controls = new InputControls();
     }
@@ -41,7 +42,7 @@ public class Bow : MonoBehaviour
 
     private void BowFollowPos()
     {
-        _weapon_pos.rotation = Quaternion.Euler(0, 0, GetAngleMousePos());
+        _weapon_pos.transform.rotation = Quaternion.Euler(0, 0, GetAngleMousePos());
     }
 
     private void BowDrag()

@@ -5,13 +5,13 @@ using UnityEngine;
 public class Blade : MonoBehaviour
 {
     [Header("Connect Script")]
-    [SerializeField] Transform _weapon_pos;
+    [SerializeField] ActiveWeapon _weapon_pos;
     [SerializeField] Transform _slash_spawm_pos;
     [SerializeField] Animator _blade_anim;
     [SerializeField] GameObject _slash_perfabs;
     
     InputControls _input_controls;
-    [SerializeField] FollowMouse _follow;
+    FollowMouse _follow;
     GameObject _slash;
 
     public bool IsAttack { get { return _is_attack; } }
@@ -19,6 +19,7 @@ public class Blade : MonoBehaviour
 
     private void Awake()
     {
+        _weapon_pos = GetComponentInParent<ActiveWeapon>();
         _blade_anim = GetComponentInParent<Animator>();
         _follow = GetComponentInParent<FollowMouse>();
         _input_controls = new InputControls();

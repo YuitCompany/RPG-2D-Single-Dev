@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
-    public bool IsFacingLeft {  get; private set; }
+    public bool IsFacingLeft { get { return _isFacingLeft; } private set { _isFacingLeft = value; } }
     bool _isFacingLeft;
 
     [SerializeField] SpriteRenderer _player_sprite;

@@ -122,6 +122,56 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Inventory"",
+            ""id"": ""4973a4a5-ed27-4226-92a8-417666682631"",
+            ""actions"": [
+                {
+                    ""name"": ""SwapWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""12830283-9696-432b-b71e-8cd006266a3c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d2e461f1-bb23-414d-ac09-0baadb2a1eb0"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale"",
+                    ""groups"": """",
+                    ""action"": ""SwapWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a98445b-a81b-4948-aab9-7b1e0979b6ba"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""SwapWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f2886bc-cee4-455c-9094-85bf08431c78"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=3)"",
+                    ""groups"": """",
+                    ""action"": ""SwapWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -132,6 +182,9 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_Attack = m_Combat.FindAction("Attack", throwIfNotFound: true);
+        // Inventory
+        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+        m_Inventory_SwapWeapon = m_Inventory.FindAction("SwapWeapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -281,6 +334,52 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
         }
     }
     public CombatActions @Combat => new CombatActions(this);
+
+    // Inventory
+    private readonly InputActionMap m_Inventory;
+    private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
+    private readonly InputAction m_Inventory_SwapWeapon;
+    public struct InventoryActions
+    {
+        private @InputControls m_Wrapper;
+        public InventoryActions(@InputControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SwapWeapon => m_Wrapper.m_Inventory_SwapWeapon;
+        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+        public void AddCallbacks(IInventoryActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InventoryActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Add(instance);
+            @SwapWeapon.started += instance.OnSwapWeapon;
+            @SwapWeapon.performed += instance.OnSwapWeapon;
+            @SwapWeapon.canceled += instance.OnSwapWeapon;
+        }
+
+        private void UnregisterCallbacks(IInventoryActions instance)
+        {
+            @SwapWeapon.started -= instance.OnSwapWeapon;
+            @SwapWeapon.performed -= instance.OnSwapWeapon;
+            @SwapWeapon.canceled -= instance.OnSwapWeapon;
+        }
+
+        public void RemoveCallbacks(IInventoryActions instance)
+        {
+            if (m_Wrapper.m_InventoryActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInventoryActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InventoryActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InventoryActions @Inventory => new InventoryActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -288,5 +387,9 @@ public partial class @InputControls: IInputActionCollection2, IDisposable
     public interface ICombatActions
     {
         void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface IInventoryActions
+    {
+        void OnSwapWeapon(InputAction.CallbackContext context);
     }
 }
