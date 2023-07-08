@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
@@ -9,6 +6,7 @@ public class Controller : MonoBehaviour
 
     [Header("Connect Scrpit")]
     [SerializeField] Movement movement;
+    [SerializeField] FollowMouse follow;
 
     [Header("Movement Status")]
     [SerializeField] float _speed = 5;
@@ -19,7 +17,9 @@ public class Controller : MonoBehaviour
         _input_controls = new InputControls();
 
         movement = GetComponentInParent<Movement>();
+        follow = GetComponentInParent<FollowMouse>();
     }
+
 
     private void Update()
     {
@@ -29,6 +29,7 @@ public class Controller : MonoBehaviour
     private void FixedUpdate()
     {
         movement.PlayerMove(_direction, _speed);
+        follow.FollowMousePos();
     }
 
     private void OnEnable()
