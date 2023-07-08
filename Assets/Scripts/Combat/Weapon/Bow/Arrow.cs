@@ -57,7 +57,10 @@ public class Arrow : MonoBehaviour
     {
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
-        enemy?.StartCoroutine(ArrowFallingRoutine(_alive_time));
+        if(enemy)
+        {
+            StartCoroutine(ArrowFallingRoutine(_alive_time));
+        }
     }
 
     public void ArrowFallenEvent()

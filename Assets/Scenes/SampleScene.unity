@@ -215,23 +215,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1341088480 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5543562260206524291, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
-  m_PrefabInstance: {fileID: 6505943850397444919}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1341088481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341088480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7b401abe7d73f4daeb036740c9eec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1391489084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5509978261442134607, guid: bdd2c1a284d154c4f8a8c07a8e7470e9, type: 3}
@@ -1041,18 +1024,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5402961858506397865, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402961858506397865, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402961858506397865, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402961858506397865, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.72
       objectReference: {fileID: 0}
@@ -1092,10 +1063,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402961858506397865, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5543562260206524291, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -1111,10 +1078,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5543562260206524291, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1341088481}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624f9441403e6e746a4e17e14b4956f9, type: 3}
 --- !u!1001 &7538477129864417696
 PrefabInstance:
@@ -1126,11 +1090,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5811172799432296750, guid: bf221b5065ea21044af92cbf8805bb32, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.584
       objectReference: {fileID: 0}
     - target: {fileID: 5811172799432296750, guid: bf221b5065ea21044af92cbf8805bb32, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6019423552332424254, guid: bf221b5065ea21044af92cbf8805bb32, type: 3}
       propertyPath: m_Pivot.x
@@ -1219,6 +1183,10 @@ PrefabInstance:
     - target: {fileID: 6348303951169115686, guid: bf221b5065ea21044af92cbf8805bb32, type: 3}
       propertyPath: m_Name
       value: HealthBarUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348303951169115686, guid: bf221b5065ea21044af92cbf8805bb32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

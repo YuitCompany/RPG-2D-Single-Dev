@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5402961858506397865}
   - component: {fileID: 2007509290437270199}
+  - component: {fileID: 7286496663246394127}
   - component: {fileID: 8722857573056070277}
+  - component: {fileID: 1451073839915664718}
+  - component: {fileID: 3509598259923481271}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -27,12 +30,12 @@ Transform:
   m_GameObject: {fileID: 5543562260206524291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.594, y: -0.203, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9114073234002104558}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2007509290437270199
 SpriteRenderer:
@@ -86,6 +89,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &7286496663246394127
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543562260206524291}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.25, y: 0.25}
+  m_Direction: 0
 --- !u!95 &8722857573056070277
 Animator:
   serializedVersion: 5
@@ -107,6 +145,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1451073839915664718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543562260206524291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7b401abe7d73f4daeb036740c9eec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3509598259923481271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543562260206524291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea446b4d41add4b40b5eaa0d2c91db92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
 --- !u!1001 &3310981928281421008
 PrefabInstance:
   m_ObjectHideFlags: 0

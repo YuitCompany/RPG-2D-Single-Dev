@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HeathBarUI : MonoBehaviour
 {
     [Header("Connect Script")]
-    //[SerializeField] GameObject _object;
+    [SerializeField] IHealthBar _object;
 
     [Space]
     [SerializeField] Slider _slider_bar;
@@ -20,7 +20,7 @@ public class HeathBarUI : MonoBehaviour
 
     private void Awake()
     {
-        //_object = GetComponentInParent<GameObject>();
+        _object = GetComponentInParent<IHealthBar>();
         _slider_bar = GetComponentInParent<Slider>();
         _fill_bar = GetComponentInChildren<Image>();
         _text_bar = GetComponentInChildren<Text>();
@@ -38,7 +38,7 @@ public class HeathBarUI : MonoBehaviour
 
     public void Set_CurrentHealth()
     {
-        _slider_bar.value = _health;
+        _slider_bar.value = _object.GetHealth();
         _slider_bar.maxValue = _health_max;
         _fill_bar.color = _color_bar.Evaluate(_slider_bar.normalizedValue);
         _text_bar.text = $"{Mathf.Round(_slider_bar.value / _slider_bar.maxValue * 100)}%";
