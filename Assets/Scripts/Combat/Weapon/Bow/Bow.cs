@@ -1,3 +1,4 @@
+using Property;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
@@ -68,6 +69,7 @@ public class Bow : MonoBehaviour
         _arrow = Instantiate(_arrow_prefabs, _arrow_spawm_pos.position, _arrow_spawm_pos.rotation);
         _arrow.GetComponent<Rigidbody2D>().AddForce(_arrow_spawm_pos.transform.right * _bow_power);
         _arrow.GetComponent<Arrow>().Angle = GetAngleMousePos();
+        _arrow.GetComponent<Arrow>().Damage = Character.Instance.Get_Property(EProperty.Attack_Power);
     }
 
     private float GetAngleMousePos()

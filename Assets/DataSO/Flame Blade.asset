@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5634e63e6773fd849abac35e6159196a, type: 3}
-  m_Name: Normal Blade
+  m_Name: Flame Blade
   m_EditorClassIdentifier: 
-  id: 1
-  name: Nomal Blade
+  id: 0
+  name: Flame Blade
   description: A Blade Of Hero
-  icon: {fileID: 1880003701, guid: dd044f0f925036a4badf6bf5ab11df35, type: 3}
+  icon: {fileID: 714060749, guid: dd044f0f925036a4badf6bf5ab11df35, type: 3}
   itemType: 3
   weaponType: 0
-  _list_type: 040000000500000007000000
+  _list_type: 01000000040000000500000007000000
   _list_value:
+  - 50
+  - 10
+  - 2
   - 1
-  - 0
-  - 0
-  spriteBlade: {fileID: 1880003701, guid: dd044f0f925036a4badf6bf5ab11df35, type: 3}
+  spriteBlade: {fileID: 714060749, guid: dd044f0f925036a4badf6bf5ab11df35, type: 3}

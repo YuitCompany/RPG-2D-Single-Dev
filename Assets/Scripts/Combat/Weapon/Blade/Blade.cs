@@ -7,7 +7,7 @@ public class Blade : MonoBehaviour
     [SerializeField] Transform _slash_spawm_pos;
     [SerializeField] Animator _blade_anim;
     [SerializeField] GameObject _slash_perfabs;
-    
+
     InputControls _input_controls;
     FollowMouse _follow;
     GameObject _slash;

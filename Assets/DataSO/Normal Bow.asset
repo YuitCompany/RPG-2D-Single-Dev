@@ -20,7 +20,7 @@ MonoBehaviour:
   weaponType: 0
   _list_type: 040000000500000007000000
   _list_value:
-  - 2
-  - 1
-  - 1
+  - 0
+  - 0
+  - 0
   Bow: {fileID: -1328631317, guid: 6f82b0dc7d2cb8d48a0e9b62736c98df, type: 3}

@@ -4,4 +4,6 @@ using UnityEngine;
 
 public class ActiveWeapon : MonoBehaviour
 {
+    public GameObject m_weapon;
+    public GameObject s_weapon;
 }

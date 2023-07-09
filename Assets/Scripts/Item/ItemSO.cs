@@ -17,7 +17,7 @@ public class ItemSO : ScriptableObject
     public EItemType itemType;
 
     private Sprite itemSprite;
-    public Sprite Get_ItemSrpite()
+    public Sprite Get_ItemSprite()
     {
         return this.itemSprite;
     }

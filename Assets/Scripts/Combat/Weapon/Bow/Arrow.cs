@@ -6,12 +6,13 @@ public class Arrow : MonoBehaviour
     [SerializeField] Rigidbody2D _arrow;
     [SerializeField] Animator _arrow_anim;
 
-    public float _damage;
     bool _isFall = false;
     float _fly_time = .5f;
     float _alive_time = 5f;
 
-    public float Angle { set { _fly_angle = value; } }
+    public float Damage { get { return _damage; } set { _damage = value; } }
+    float _damage;
+    public float Angle { get { return _fly_angle; } set { _fly_angle = value; } }
     float _fly_angle;
 
     private void Awake()
@@ -28,7 +29,7 @@ public class Arrow : MonoBehaviour
     private IEnumerator ArrowFlyingRoutine(float flyTime)
     {
         // Before Load Time Code
-        transform.rotation = Quaternion.Euler(0, 0, _fly_angle - 45);
+        transform.rotation = Quaternion.Euler(0, 0, Angle - 45);
 
         while (flyTime >= 0)
         {
