@@ -1,3 +1,4 @@
+using Property;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ public class Controller : MonoBehaviour
     [SerializeField] FollowMouse follow;
 
     [Header("Movement Status")]
-    [SerializeField] float _speed = 5;
     [SerializeField] Vector2 _direction;
 
     [Header("Weapon Slot")]
@@ -23,7 +23,6 @@ public class Controller : MonoBehaviour
 
         movement = GetComponentInParent<Movement>();
         follow = GetComponentInParent<FollowMouse>();
-
     }
 
     private void Start()
@@ -38,7 +37,7 @@ public class Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement.PlayerMove(_direction, _speed);
+        movement.PlayerMove(_direction, Character.Instance.Get_Property(EProperty.Move_Speed));
         follow.FollowMousePos();
     }
 

@@ -8,7 +8,7 @@ namespace Status
         EProperty key;
         float value;
 
-        FloatProperty(EProperty key, float value)
+        public FloatProperty(EProperty key, float value)
         {
             this.key = key;
             this.value = value;
@@ -25,13 +25,6 @@ namespace Status
     public class Status
     {
         private Dictionary<EProperty, FloatProperty> dic_float_property = new Dictionary<EProperty, FloatProperty>();
-    
-        public void Set_Property(FloatProperty p)
-        {
-            if (Is_Property(p.GetType())) return;
-
-            dic_float_property.Add(p.GetType(), p);
-        }
 
         public float Get_Property(EProperty k)
         {
@@ -39,8 +32,21 @@ namespace Status
 
             return dic_float_property[k].Value;
         }
+    
+        public void Set_Property(FloatProperty p)
+        {
+            if (Is_Property(p.GetType())) return;
 
-        public void Plus_Property(FloatProperty p, EOperator o)
+            dic_float_property.Add(p.GetType(), p);
+        }
+        public void Set_Property(EProperty k, float v)
+        {
+            if (Is_Property(k)) return;
+
+            dic_float_property.Add(k, new FloatProperty(k, v));
+        }
+
+        public void Change_Property(FloatProperty p, EOperator o)
         {
             if (!Is_Property(p.GetType())) return;
 
@@ -50,7 +56,7 @@ namespace Status
             if (o == EOperator.Divide) dic_float_property[p.GetType()].Value /= p.Value;
         }
 
-        public void Plus_PropertyList(FloatProperty[] pl, EOperator o)
+        public void Change_PropertyList(FloatProperty[] pl, EOperator o)
         {
             foreach (FloatProperty i in pl)
             {
@@ -61,7 +67,6 @@ namespace Status
                 if (o == EOperator.Mutiply) dic_float_property[i.GetType()].Value *= i.Value;
                 if (o == EOperator.Divide) dic_float_property[i.GetType()].Value /= i.Value;
             }
-
         }
 
         public bool Is_Property(EProperty k)

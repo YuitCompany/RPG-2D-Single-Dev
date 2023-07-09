@@ -16,7 +16,7 @@ public class TakeDamage : MonoBehaviour
 
         if(arrow || blade)
         {
-            _health.SetHealth(5);
+            _health.Set_TakeDamage(5);
         }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Blade : MonoBehaviour
@@ -38,6 +36,11 @@ public class Blade : MonoBehaviour
     private void OnEnable()
     {
         _input_controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _input_controls.Disable();
     }
 
     private void BladeFollowPos()

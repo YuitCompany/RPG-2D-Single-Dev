@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
@@ -38,6 +35,11 @@ public class Bow : MonoBehaviour
     private void OnEnable()
     {
         _input_controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _input_controls.Disable();
     }
 
     private void BowFollowPos()
