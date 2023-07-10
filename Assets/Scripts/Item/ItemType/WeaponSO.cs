@@ -13,14 +13,14 @@ public class WeaponSO : ItemSO
     
     [Space]
     [Header("Base Status")]
-    [SerializeField] List<EProperty> _list_type = new List<EProperty>();
-    [SerializeField] List<float> _list_value = new List<float>();
-
+    [SerializeField] List<EProperty> listKey = new List<EProperty>();
+    [SerializeField] List<float> listValue = new List<float>();
+    
     Status.Status _weapon_status = new Status.Status();
 
     public void OnValidate()
     {
-        _weapon_status.Set_PropertyList(_list_type, _list_value);
+        _weapon_status.Set_PropertyList(listKey, listValue);
     }
 
     public override void Update()

@@ -15,8 +15,8 @@ public class Character : Singleton<Character>, IHealthBar
     [SerializeField] string _description;
 
     [Header("Player Status")]
-    [SerializeField] List<EProperty> _list_key = new List<EProperty>();
-    [SerializeField] List<float> _list_value = new List<float>();
+    [SerializeField] List<EProperty> listKey = new List<EProperty>();
+    [SerializeField] List<float> listValue = new List<float>();
 
     [Header("Equipment")]
     [SerializeField] Dictionary<EWeaponSlot, Status.Status> _dic_weapon = new Dictionary<EWeaponSlot, Status.Status>();
@@ -29,7 +29,7 @@ public class Character : Singleton<Character>, IHealthBar
         base.Awake();
 
         _status = new Status.Status();
-        Set_Status(_list_key, _list_value);
+        Set_Status(listKey, listValue);
     }
 
     private void Update()
