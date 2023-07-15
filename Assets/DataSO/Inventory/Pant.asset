@@ -16,8 +16,12 @@ MonoBehaviour:
   name: Pant
   description: Self-Protection Pant
   icon: {fileID: -935901070, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}
-  itemType: 2
-  inventoryType: 2
-  listKey: 
-  listValue: []
+  itemType: 1
+  equipmentType: 1
+  inventoryType: 3
+  listKey: 010000000600000007000000
+  listValue:
+  - 15
+  - 3
+  - -1
   pant: {fileID: -935901070, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}

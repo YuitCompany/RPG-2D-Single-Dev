@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EInventoryType
 {
-    None, Helmet, Armor, Pant, Boot, Necklace
+    None, Helmet, Armor, Pant, Boot, Necklace, Ring
 }
 
 public class InventorySO : EquipmentSO
@@ -30,7 +30,7 @@ public class InventorySO : EquipmentSO
         this.equipmentType = EEquipmentType.Inventory;
     }
 
-    public Status.Status GetStatus()
+    public override Status.Status Get_Status()
     {
         return _inventory_status;
     }

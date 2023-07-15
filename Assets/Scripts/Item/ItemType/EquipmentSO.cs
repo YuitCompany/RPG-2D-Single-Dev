@@ -20,4 +20,9 @@ public class EquipmentSO : ItemSO
     {
         return EInventoryType.None;
     }
+
+    public virtual Status.Status Get_Status()
+    {
+        return new Status.Status();
+    }
 }

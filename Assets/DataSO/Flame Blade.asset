@@ -16,11 +16,12 @@ MonoBehaviour:
   name: Flame Blade
   description: A Blade Of Hero
   icon: {fileID: 714060749, guid: dd044f0f925036a4badf6bf5ab11df35, type: 3}
-  itemType: 3
+  itemType: 1
+  equipmentType: 2
   weaponType: 0
-  _list_type: 01000000040000000500000007000000
-  _list_value:
-  - 50
+  listKey: 01000000040000000500000007000000
+  listValue:
+  - 30
   - 10
   - 2
   - 1

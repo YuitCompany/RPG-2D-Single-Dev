@@ -8,6 +8,8 @@ public class EquipmentSlot : ItemSlot
     {
         base.OnValidate();
 
+        Item = null;
+
         if (equipmentType == EEquipmentType.Inventory)
         {
             this.gameObject.name = inventoryType.ToString() + " " + equipmentType.ToString() + " Slot";

@@ -16,8 +16,13 @@ MonoBehaviour:
   name: Necklace
   description: A Necklace Of Blessings
   icon: {fileID: 2113422386, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}
-  itemType: 2
-  inventoryType: 4
-  listKey: 
-  listValue: []
+  itemType: 1
+  equipmentType: 1
+  inventoryType: 5
+  listKey: 01000000030000000400000007000000
+  listValue:
+  - 10
+  - 5
+  - 1
+  - 2
   necklace: {fileID: 1134649054, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}

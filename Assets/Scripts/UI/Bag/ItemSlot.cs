@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] Image image;
 
-    public event Action<ItemSO> OnRightClickEvent;
+    public event Action<ItemSO> OnLeftClickEvent;
 
     private ItemSO _item;
     public ItemSO Item 
@@ -38,9 +39,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData != null && eventData.button == PointerEventData.InputButton.Left)
+        if (eventData == null) return;
+
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (Item != null && OnRightClickEvent != null) OnRightClickEvent(Item);
+            if (Item != null && OnLeftClickEvent != null) OnLeftClickEvent(Item);
         }
     }
 }

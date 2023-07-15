@@ -8,13 +8,13 @@ public class ItemList : MonoBehaviour
     [SerializeField] Transform listItemParent;
     [SerializeField] ItemSlot[] listItemSlot;
 
-    public event Action<ItemSO> OnItemRightClickEvent;
+    public event Action<ItemSO> OnItemLeftClickEvent;
 
     private void Awake()
     {
         foreach (ItemSlot i in listItemSlot)
         {
-            i.OnRightClickEvent += OnItemRightClickEvent;
+            i.OnLeftClickEvent += OnItemLeftClickEvent;
         }
     }
 

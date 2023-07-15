@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Threading;
 using Property;
+using UnityEngine;
 
 namespace Status
 {
@@ -24,7 +26,8 @@ namespace Status
 
     public class Status
     {
-        private Dictionary<EProperty, FloatProperty> dic_float_property = new Dictionary<EProperty, FloatProperty>();
+        Dictionary<EProperty, FloatProperty> dic_float_property = new Dictionary<EProperty, FloatProperty>();
+
 
         public float Get_Property(EProperty k)
         {
@@ -32,7 +35,7 @@ namespace Status
 
             return dic_float_property[k].Value;
         }
-    
+
         public void Set_Property(FloatProperty p)
         {
             if (Is_Property(p.GetType())) return;
@@ -102,6 +105,8 @@ namespace Status
             if (dic_float_property.ContainsKey(k)) return true;
             return false;
         }
+
+        // can be remove
         public bool Is_Equal(Status s)
         {
             if (dic_float_property.Count != s.dic_float_property.Count) return false;

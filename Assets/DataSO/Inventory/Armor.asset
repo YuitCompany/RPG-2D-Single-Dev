@@ -16,8 +16,12 @@ MonoBehaviour:
   name: Armor
   description: Self-Protection Armor
   icon: {fileID: 1984201346, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}
-  itemType: 2
-  inventoryType: 1
-  listKey: 
-  listValue: []
+  itemType: 1
+  equipmentType: 1
+  inventoryType: 2
+  listKey: 010000000600000007000000
+  listValue:
+  - 35
+  - 5
+  - 0
   armor: {fileID: 1984201346, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}

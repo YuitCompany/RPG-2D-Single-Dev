@@ -16,8 +16,11 @@ MonoBehaviour:
   name: Helmet
   description: Self-Protection Helmet
   icon: {fileID: 1586225755, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}
-  itemType: 2
-  inventoryType: 0
-  listKey: 
-  listValue: []
+  itemType: 1
+  equipmentType: 1
+  inventoryType: 1
+  listKey: 0100000006000000
+  listValue:
+  - 10
+  - 2
   helmet: {fileID: 1586225755, guid: 7cca7a536f9fbbc46a8843d6338744ac, type: 3}

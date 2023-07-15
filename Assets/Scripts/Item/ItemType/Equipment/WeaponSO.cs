@@ -30,7 +30,7 @@ public class WeaponSO : EquipmentSO
         this.equipmentType = EEquipmentType.Weapon;
     }
 
-    public Status.Status Get_Status()
+    public override Status.Status Get_Status()
     {
         return _weapon_status;
     }

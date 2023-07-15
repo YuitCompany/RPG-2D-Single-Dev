@@ -6,13 +6,13 @@ public class EquipmentList : MonoBehaviour
     [SerializeField] Transform equipSlotParent;
     [SerializeField] EquipmentSlot[] listEquipSlot;
 
-    public event Action<ItemSO> OnItemRightClickEvent;
+    public event Action<ItemSO> OnItemLeftClickEvent;
 
     private void Awake()
     {
         foreach(EquipmentSlot i in listEquipSlot)
         {
-            i.OnRightClickEvent += OnItemRightClickEvent;
+            i.OnLeftClickEvent += OnItemLeftClickEvent;
         }
     }
 

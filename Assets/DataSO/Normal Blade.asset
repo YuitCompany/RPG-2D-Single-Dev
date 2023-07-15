@@ -16,11 +16,11 @@ MonoBehaviour:
   name: Nomal Blade
   description: A Blade Of Hero
   icon: {fileID: 1880003701, guid: dd044f0f925036a4badf6bf5ab11df35, type: 3}
-  itemType: 3
+  itemType: 1
+  equipmentType: 2
   weaponType: 0
-  _list_type: 040000000500000007000000
-  _list_value:
+  listKey: 0400000005000000
+  listValue:
+  - 3
   - 1
-  - 0
-  - 0
   spriteBlade: {fileID: 1880003701, guid: dd044f0f925036a4badf6bf5ab11df35, type: 3}

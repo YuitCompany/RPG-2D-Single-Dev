@@ -37,7 +37,7 @@ public class Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement.PlayerMove(_direction, Character.Instance.Get_Property(EProperty.Move_Speed));
+        movement.PlayerMove(_direction, Character.Instance.Get_CurrentProperty(EProperty.Move_Speed));
         follow.FollowMousePos();
     }
 

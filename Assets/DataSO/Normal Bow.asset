@@ -16,11 +16,12 @@ MonoBehaviour:
   name: Normal Bow
   description: A Normal Bow
   icon: {fileID: -1328631317, guid: 6f82b0dc7d2cb8d48a0e9b62736c98df, type: 3}
-  itemType: 3
+  itemType: 1
+  equipmentType: 2
   weaponType: 0
-  _list_type: 040000000500000007000000
-  _list_value:
-  - 0
-  - 0
-  - 0
+  listKey: 040000000500000007000000
+  listValue:
+  - 1
+  - 2
+  - 1
   Bow: {fileID: -1328631317, guid: 6f82b0dc7d2cb8d48a0e9b62736c98df, type: 3}
