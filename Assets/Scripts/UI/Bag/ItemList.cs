@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,16 @@ public class ItemList : MonoBehaviour
     [SerializeField] List<ItemSO> listItem;
     [SerializeField] Transform listItemParent;
     [SerializeField] ItemSlot[] listItemSlot;
+
+    public event Action<ItemSO> OnItemRightClickEvent;
+
+    private void Awake()
+    {
+        foreach (ItemSlot i in listItemSlot)
+        {
+            i.OnRightClickEvent += OnItemRightClickEvent;
+        }
+    }
 
     private void OnValidate()
     {
@@ -17,17 +27,42 @@ public class ItemList : MonoBehaviour
         RefreshUI();
     }
 
-    private void RefreshUI()
+    private void RefreshUI(int i = 0)
     {
-        int i = 0;
-        for(; i < listItem.Count && i < listItemSlot.Length; i++)
+        if (i >= listItemSlot.Length) return;
+
+        if(i >= listItem.Count)
+        {
+            listItemSlot[i].Item = null;
+        } else
         {
             listItemSlot[i].Item = listItem[i];
         }
 
-        for(; i < listItemSlot.Length; i++)
-        {
-            listItemSlot[i].Item = null;
-        }
+        RefreshUI(i + 1);
     }
+
+    public bool IsFullList()
+    {
+        return listItem.Count >= listItemSlot.Length;
+    }
+
+    public bool Add_Item(ItemSO item)
+    {
+        if (IsFullList()) return false;
+
+        listItem.Add(item);
+
+        RefreshUI();
+        return true;
+    }
+
+    public bool Remove_Item(ItemSO item)
+    {
+        if (!listItem.Remove(item)) return false;
+
+        RefreshUI();
+        return true;
+    }
+
 }

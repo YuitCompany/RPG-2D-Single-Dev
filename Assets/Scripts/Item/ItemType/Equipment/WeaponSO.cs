@@ -7,7 +7,7 @@ public enum EWeaponType
     Blade, Bow
 }
 
-public class WeaponSO : ItemSO
+public class WeaponSO : EquipmentSO
 {
     public EWeaponType weaponType;
     
@@ -27,11 +27,16 @@ public class WeaponSO : ItemSO
     {
         base.Update();
 
-        this.itemType = EItemType.Weapon;
+        this.equipmentType = EEquipmentType.Weapon;
     }
 
     public Status.Status Get_Status()
     {
         return _weapon_status;
+    }
+
+    public override EInventoryType Get_InventoryType()
+    {
+        return base.Get_InventoryType();
     }
 }

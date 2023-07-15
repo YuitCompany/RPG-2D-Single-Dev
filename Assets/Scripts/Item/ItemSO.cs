@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum EItemType
 {
-    none, Item, Inventory, Weapon, Quest
+    none, Equipment, Quest
 }
 
 public class ItemSO : ScriptableObject
